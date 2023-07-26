@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -59,10 +61,14 @@ class LandingScreen extends StatelessWidget {
                               fontSize: 16,
                               color: Colors.grey),
                         ),
-                        ElevatedButton(
-                          style: ButtonStyle(),
-                          onPressed: () {},
-                          child: Text('Login'),
+                        Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xFF6A5AE0),
+                          ),
+                          child: Center(child: Text('Login')),
                         ),
                         TextButton(
                             onPressed: () {}, child: Text('Create an account')),
