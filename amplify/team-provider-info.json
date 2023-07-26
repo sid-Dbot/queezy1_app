@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-queezy1app-dev-165726-authRole",
+      "UnauthRoleArn": "arn:aws:iam::504379237097:role/amplify-queezy1app-dev-165726-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::504379237097:role/amplify-queezy1app-dev-165726-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-queezy1app-dev-165726-deployment",
+      "UnauthRoleName": "amplify-queezy1app-dev-165726-unauthRole",
+      "StackName": "amplify-queezy1app-dev-165726",
+      "StackId": "arn:aws:cloudformation:ap-south-1:504379237097:stack/amplify-queezy1app-dev-165726/50f907c0-2ba5-11ee-92c6-020dbe7fd39a",
+      "AmplifyAppId": "d1afniab9eiw3q"
+    },
+    "categories": {
+      "auth": {
+        "queezy1appd0aa3b08": {}
+      }
+    }
+  }
+}
