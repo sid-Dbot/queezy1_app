@@ -1,19 +1,19 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-queezy1app-dev-165726-authRole",
-      "UnauthRoleArn": "arn:aws:iam::504379237097:role/amplify-queezy1app-dev-165726-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::504379237097:role/amplify-queezy1app-dev-165726-authRole",
+      "AuthRoleName": "amplify-triviagambling-staging-123941-authRole",
+      "UnauthRoleArn": "arn:aws:iam::504379237097:role/amplify-triviagambling-staging-123941-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::504379237097:role/amplify-triviagambling-staging-123941-authRole",
       "Region": "ap-south-1",
-      "DeploymentBucketName": "amplify-queezy1app-dev-165726-deployment",
-      "UnauthRoleName": "amplify-queezy1app-dev-165726-unauthRole",
-      "StackName": "amplify-queezy1app-dev-165726",
-      "StackId": "arn:aws:cloudformation:ap-south-1:504379237097:stack/amplify-queezy1app-dev-165726/50f907c0-2ba5-11ee-92c6-020dbe7fd39a",
-      "AmplifyAppId": "d1afniab9eiw3q"
+      "DeploymentBucketName": "amplify-triviagambling-staging-123941-deployment",
+      "UnauthRoleName": "amplify-triviagambling-staging-123941-unauthRole",
+      "StackName": "amplify-triviagambling-staging-123941",
+      "StackId": "arn:aws:cloudformation:ap-south-1:504379237097:stack/amplify-triviagambling-staging-123941/b2dde920-0b79-11ee-b426-02dff94f18a2",
+      "AmplifyAppId": "d24su1loe2x4bu"
     },
     "categories": {
       "auth": {
-        "queezy1appd0aa3b08": {}
+        "triviagambling": {}
       }
     }
   }

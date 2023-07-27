@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  Map<int, Color> color = {
+  final Map<int, Color> color = {
     50: Color.fromRGBO(51, 153, 255, .1),
     100: Color.fromRGBO(51, 153, 255, .2),
     200: Color.fromRGBO(51, 153, 255, .3),
@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            centerTitle: true,
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black),
         fontFamily: 'Rubik',
         // This is the theme of your application.
         //
