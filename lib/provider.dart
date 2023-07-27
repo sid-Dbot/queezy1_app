@@ -1,19 +1,33 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:queezy1_app/Views/resetPassword.dart';
 
 import 'auth/authRepo.dart';
 
 class Auth with ChangeNotifier {
   AWSauthRepo awSauthRepo;
   Auth({required this.awSauthRepo});
-
   String? email;
   String? password;
-  String? userName;
-  int step = 0;
+  setEmail(String text) {
+    email = text;
+    notifyListeners();
+  }
 
-  _nextStep() {
-    step += 1;
+  setPass(String p) {
+    password = p;
+  }
+
+  resetPassword(String email) async {
+    await awSauthRepo.resetPassword(email);
+  }
+
+  signIn(String email, String password) async {
+    await awSauthRepo.signIn(email, password);
+  }
+
+  signUp(String email, String password, String userName) async {
+    await awSauthRepo.signUp(email, password, userName);
   }
 }
 

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:queezy1_app/extractedWidgets.dart';
+
+import '../provider.dart';
 
 class ResetPassword extends StatelessWidget {
   var _controller = TextEditingController();
@@ -24,7 +27,11 @@ class ResetPassword extends StatelessWidget {
                   fontSize: 16),
               CustomTextFIeld(title: 'Email Address', controller: _controller),
             ]),
-            CustomButton(buttonName: 'Reset Password'),
+            GestureDetector(
+                onTap: () {
+                  context.read<Auth>().resetPassword(_controller.text);
+                },
+                child: CustomButton(buttonName: 'Reset Password')),
           ],
         ),
       ),

@@ -79,11 +79,18 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                       if (value.step == 1) {
                         value.nextState(
                             'What’s your password?', 'Password', .67, 2);
+                        context.read<Auth>().setEmail(_controller.text);
                         return;
                       }
                       if (value.step == 2) {
                         value.nextState('Create a username', 'Username', 1, 3);
+                        context.read<Auth>().setPass(_controller.text);
                         return;
+                      } else {
+                        context.read<Auth>().signUp(
+                            context.read<Auth>().email.toString(),
+                            context.read<Auth>().password.toString(),
+                            _controller.text);
                       }
                       // widget.auth
                       //     .signUp(_controller.text, _pass.text, _user.text);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:queezy1_app/Views/resetPassword.dart';
 import 'package:queezy1_app/extractedWidgets.dart';
+import 'package:queezy1_app/provider.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -37,7 +39,11 @@ class _LoginState extends State<Login> {
                 fontSize: 16),
             CustomTextFIeld(title: 'Email Address', controller: _email),
             CustomTextFIeld(title: 'Password', controller: _password),
-            CustomButton(buttonName: 'Login'),
+            GestureDetector(
+                onTap: () {
+                  context.read<Auth>().signIn(_email.text, _password.text);
+                },
+                child: CustomButton(buttonName: 'Login')),
             GestureDetector(
               onTap: () {
                 Navigator.push(

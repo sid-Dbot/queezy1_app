@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:queezy1_app/extractedWidgets.dart';
 
 import '../auth/authRepo.dart';
-import 'Sign Up steps/step1.dart';
+import 'Sign Up steps/steps.dart';
 import 'login.dart';
 
 class SignUp extends StatelessWidget {

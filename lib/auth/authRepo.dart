@@ -12,6 +12,16 @@ class AWSauthRepo {
     }
   }
 
+  Future<void> resetPassword(String username) async {
+    try {
+      await Amplify.Auth.resetPassword(
+        username: username,
+      );
+    } on AuthException catch (e) {
+      safePrint('Error resetting password: ${e.message}');
+    }
+  }
+
   Future<void> signIn(String email, String password) async {
     try {
       await Amplify.Auth.signIn(username: email, password: password);
