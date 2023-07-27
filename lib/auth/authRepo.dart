@@ -22,7 +22,7 @@ class AWSauthRepo {
 
   Future<void> signUp(String email, String password, String userName) async {
     try {
-      final userAttributes = {AuthUserAttributeKey.email: email};
+      final userAttributes = {AuthUserAttributeKey.name: email};
       await Amplify.Auth.signUp(
           username: userName,
           password: password,

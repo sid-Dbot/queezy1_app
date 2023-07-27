@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:queezy1_app/Views/login.dart';
 import 'package:queezy1_app/Views/signUp.dart';
 
 import '../amplifyconfiguration.dart';
@@ -72,7 +73,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     scale: 2.6,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * .42,
+                    height: MediaQuery.of(context).size.height * .4,
                     width: MediaQuery.of(context).size.width - 32,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -90,29 +91,35 @@ class _LandingScreenState extends State<LandingScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                          child: CustomText(text:
                             'Login or create an account to take quiz,\ntake part in challenge, and more.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
+                         
+                      
+                                fontWeight: FontWeight.w500,
                                 fontSize: 16,
-                                color: Colors.grey),
+                                color: Colors.grey
                           ),
                         ),
-                        CustomButton(
-                            buttonName: 'Login', color: Color(0xFF6A5AE0)),
-                        TextButton(
-                            onPressed: () {
-                              Navigator.push(
+                        GestureDetector(onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),));
+                        },
+                          child: CustomButton(
+                              buttonName: 'Login', color: Color(0xFF6A5AE0)),
+                        ),
+
+                            GestureDetector(
+                              onTap: () {
+                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => SignUp(),
                                   ));
-                            },
-                            child: Text('Create an account')),
+                              },
+                              child: CustomButton(buttonName: 'Create an account',color: Color(0xFFE6E6E6),textColor:Color(0xFF6A5AE0) ,)),
+                       
                         TextButton(
                           onPressed: () {},
-                          child: Text('Later'),
+                          child: CustomText(text:'Later',color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 16),
                         )
                       ]),
                     ),

@@ -25,10 +25,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
+      theme: ThemeData(scaffoldBackgroundColor: Color(0xFFEFEEFC),
+        appBarTheme: AppBarTheme(elevation: 0,titleTextStyle: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,color: Colors.black),
             centerTitle: true,
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xFFEFEEFC),
             foregroundColor: Colors.black),
         fontFamily: 'Rubik',
         // This is the theme of your application.

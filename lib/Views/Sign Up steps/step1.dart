@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:queezy1_app/Views/signUp.dart';
+
+import '../../extractedWidgets.dart';
+import '../../auth/authRepo.dart';
 
 class SignUpDetails extends StatefulWidget {
+  AWSauthRepo auth;
+  SignUpDetails({required this.auth});
   @override
   State<SignUpDetails> createState() => _SignUpDetailsState();
 }
 
 class _SignUpDetailsState extends State<SignUpDetails> {
+  int page=1;
   TextEditingController _controller = TextEditingController();
+  TextEditingController _pass=TextEditingController();
+  TextEditingController _user = TextEditingController();
   double _progress = .33;
   @override
   Widget build(BuildContext context) {
@@ -31,14 +40,13 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                 : 'Create a username'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(label: Text('Email Address')),
-            ),
+            CustomTextFIeld(title: 'Email Address',controller: _controller),
+            // CustomTextFIeld(controller: _pass),
+            // CustomTextFIeld(controller: _user),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,9 +73,11 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    page += 1;
-                    _progress += .34;
-                    setState(() {});
+                    widget.auth.signUp(_controller.text, _pass.text, _user.text); 
+                   
+                    // page += 1;
+                    // _progress += .34;
+                    // setState(() {});
                   },
                   child: CustomButton(
                     buttonName: 'Next',
@@ -81,3 +91,4 @@ class _SignUpDetailsState extends State<SignUpDetails> {
     );
   }
 }
+
