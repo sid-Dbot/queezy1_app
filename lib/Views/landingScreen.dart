@@ -1,12 +1,15 @@
 import 'dart:ui';
 
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+
 import 'package:queezy1_app/Views/signUp.dart';
 
 import '../amplifyconfiguration.dart';
 import '../extractedWidgets.dart';
+import '../models/ModelProvider.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -25,7 +28,10 @@ class _LandingScreenState extends State<LandingScreen> {
   Future<void> _configureAmplify() async {
     // Add any Amplify plugins you want to use
     final authPlugin = AmplifyAuthCognito();
-    await Amplify.addPlugin(authPlugin);
+    final datastorePlugin =
+        AmplifyDataStore(modelProvider: ModelProvider.instance);
+
+    await Amplify.addPlugins([authPlugin, datastorePlugin]);
 
     // You can use addPlugins if you are going to be adding multiple plugins
     // await Amplify.addPlugins([authPlugin, analyticsPlugin]);

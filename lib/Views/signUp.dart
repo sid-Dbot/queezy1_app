@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queezy1_app/extractedWidgets.dart';
 
-0
+import 'Sign Up steps/step1.dart';
 
 class SignUp extends StatelessWidget {
   String? email;
@@ -30,5 +30,3 @@ class SignUp extends StatelessWidget {
     );
   }
 }
-
-

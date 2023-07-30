@@ -1,3 +1,5 @@
+
+
 type RoomMember @model @auth(rules: [{allow: public}]) {
   id: ID!
   playerID: String!
@@ -68,7 +70,6 @@ type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
   username: String
-  email : String
   level: Int!
   picture: String
 }

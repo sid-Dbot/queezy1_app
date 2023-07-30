@@ -6,8 +6,4 @@ class Auth with ChangeNotifier {
   String? password;
   String? userName;
   int? step;
-
-  _nextStep() {
-    step += 1;
-  }
 }

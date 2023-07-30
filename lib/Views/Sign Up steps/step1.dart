@@ -1,4 +1,8 @@
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
+
+import '../../extractedWidgets.dart';
+import '../../models/User.dart';
 
 class SignUpDetails extends StatefulWidget {
   @override
@@ -6,7 +10,10 @@ class SignUpDetails extends StatefulWidget {
 }
 
 class _SignUpDetailsState extends State<SignUpDetails> {
-  TextEditingController _controller = TextEditingController();
+  TextEditingController _emailcontroller = TextEditingController();
+  TextEditingController _passcontroller = TextEditingController();
+
+  TextEditingController _Codecontroller = TextEditingController();
   double _progress = .33;
   @override
   Widget build(BuildContext context) {
@@ -14,30 +21,37 @@ class _SignUpDetailsState extends State<SignUpDetails> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            if (page == 1) {
-              Navigator.pop(context);
-            } else {
-              page -= 1;
-              _progress -= .34;
-              setState(() {});
-            }
-          },
+          onPressed: () {},
         ),
-        title: Text(page == 1
-            ? 'What\'s your Email?'
-            : page == 2
-                ? 'What\'s your password?'
-                : 'Create a username'),
+        title: Text('What\'s your Email?'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             TextField(
-              controller: _controller,
+              controller: _emailcontroller,
               decoration: InputDecoration(label: Text('Email Address')),
+            ),
+            TextField(
+              controller: _passcontroller,
+              decoration: InputDecoration(label: Text('password')),
+            ),
+            TextField(
+              controller: _Codecontroller,
+              decoration: InputDecoration(label: Text('Code')),
+            ),
+            GestureDetector(
+              onTap: () async {
+                await Amplify.Auth.confirmSignUp(
+                  username: _emailcontroller.text,
+                  confirmationCode: _Codecontroller.text,
+                );
+              },
+              child: CustomButton(
+                buttonName: 'Next',
+              ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -47,7 +61,7 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Text('$page of 3')],
+                    children: [Text('1 of 3')],
                   ),
                 ),
                 Padding(
@@ -64,10 +78,17 @@ class _SignUpDetailsState extends State<SignUpDetails> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    page += 1;
-                    _progress += .34;
-                    setState(() {});
+                  onTap: () async {
+                    await Amplify.Auth.signUp(
+                      username: _emailcontroller.text,
+                      password: _passcontroller.text,
+                    ).then((value) => print(value));
+
+                    await Amplify.DataStore.save(User(
+                        name: _emailcontroller.text,
+                        username: _emailcontroller.text,
+                        level: 1020,
+                        picture: "Lorem ipsum dolor sit amet"));
                   },
                   child: CustomButton(
                     buttonName: 'Next',

@@ -39,6 +39,7 @@ dependencies:
   amplify_flutter: ^1.2.1
   google_fonts: ^5.1.0
   provider: ^6.0.5
+  amplify_datastore: ^1.3.0
 
 dev_dependencies:
   flutter_test:
